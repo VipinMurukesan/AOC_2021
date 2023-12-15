@@ -1,0 +1,73 @@
+start-A
+A-b
+A-end
+
+{start:[A],A:[b,end],b:[A]}
+
+keyDict = defaultDict(list)
+
+node1 = start
+node2 = A
+
+
+
+keyDict[node1].append(node2)
+
+
+node1 = A
+node2 = b
+
+
+keyDict[node1].append(node2)
+
+keyDict[node2].append(node1)
+
+
+node1 = A
+node2 = end
+
+
+keyDict[node1].append(node2)
+
+
+{start:[A],A:[b,end],b:[A]}
+
+start -> end
+
+start -> A 
+
+A -> b , end 
+
+A -> b  
+
+b -> A 
+
+A -> end
+
+return list after end is added
+
+[]
+[[start,A][start,A]]
+
+[start,A,b] [start,A,end]
+
+[start,A,b,A]
+
+[start,A,b,A,end]
+
+
+    for node in pathDict[startNode]:
+      newPathDict = pathDict
+      if str.islower(startNode):
+        newPathDict = copy.deepcopy(pathDict)
+        newPathDict[node].remove(startNode)
+      self.generate_paths(node,endNode,copy.deepcopy(pathDict),currentPath)
+
+A -b- c
+
+from A
+{A:[b],b:[A,c],c:[b]}
+
+from b
+{A:[],b:[A,c],c:[b]}
+{A:[],b:[A,c],c:[]}
